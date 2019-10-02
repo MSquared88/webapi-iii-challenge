@@ -1,4 +1,4 @@
-const express = 'express';
+const express = require('express');
 
 const server = express();
 
@@ -11,5 +11,9 @@ server.get('/', (req, res) => {
 function logger(req, res, next) {
 
 };
+
+const port = 8000
+
+server.listen(port, console.log(`\n Server listening on port ${port}`))
 
 module.exports = server;
