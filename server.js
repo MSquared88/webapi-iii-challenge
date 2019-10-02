@@ -1,10 +1,15 @@
 const express = require('express');
-
 const server = express();
+
+//routes
+const userRoute = require('./users/userRouter')
 
 server.get('/', (req, res) => {
   res.send(`<h2>Let's write some middleware!</h2>`)
 });
+
+server.use('/users', userRoute)
+
 
 //custom middleware
 
