@@ -4,6 +4,7 @@ const server = express();
 
 //routes
 const userRoute = require('./users/userRouter')
+const postsRoute = require('./posts/postRouter')
 
 server.use(express.json())
 server.use(logger)
@@ -13,6 +14,8 @@ server.get('/', (req, res) => {
 });
 
 server.use('/users', userRoute)
+server.use('/posts', postsRoute)
+
 
 
 //custom middleware
@@ -22,8 +25,8 @@ function logger(req, res, next) {
   next()
 };
 
-const port = 8000
 
-server.listen(port, console.log(`\n Server listening on port ${port}`))
+
+
 
 module.exports = server;
