@@ -22,7 +22,7 @@ router.post('/:id/posts', validateUserId, validatePost, (req, res) => {
     .then(post => {
         res.status(200).json(post)
     })
-    .catch(err => console.log(err))
+    .catch(err => res.status(500).json(err))
 });
 
 router.get('/', (req, res) => {

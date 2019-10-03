@@ -6,6 +6,7 @@ const server = express();
 const userRoute = require('./users/userRouter')
 const postsRoute = require('./posts/postRouter')
 
+//middleware
 server.use(express.json())
 server.use(logger)
 
@@ -13,6 +14,7 @@ server.get('/', (req, res) => {
   res.send(`<h2>Let's write some middleware!</h2>`)
 });
 
+//routes
 server.use('/users', userRoute)
 server.use('/posts', postsRoute)
 
