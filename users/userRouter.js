@@ -10,7 +10,7 @@ router.post('/', validateUser, (req, res) => {
 
     userDB.insert(req.body)
     .then(user => {
-        res.send(201).json(user)
+        res.status(201).json(user)
     })
     .catch(err => res.status(500).json(err))
 });
@@ -58,7 +58,7 @@ router.delete('/:id', validateUserId, (req, res) => {
 
     userDB.remove(id)
     .then(dbRes => {
-        res.status(200).json({message: 'removed user'})
+        res.status(204).json({message: 'removed user'})
     })
     .catch(err => console.log(err))
 });
